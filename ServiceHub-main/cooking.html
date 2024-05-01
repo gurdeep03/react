@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="./tasker.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: url(bg.jpg);
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .side img {
+            border-radius: 20px;
+            max-width: 100%;
+            margin-left: 200px;
+            opacity: 0.7;
+        }
+
+        .side img:hover {
+            opacity: 100;
+        }
+
+        .login-container {
+            max-width: 450px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            text-transform: uppercase;
+            font-size: 3em;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .separator {
+            width: 150px;
+            height: 4px;
+            background-color: #479AC8;
+            margin: 24px;
+        }
+
+        .welcome-message {
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 28px;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .login-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-control {
+            width: 100%;
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        input,
+        button {
+            border: none;
+            outline: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+        }
+
+        input {
+            width: 100%;
+            background: #e6e6e6;
+            color: #333;
+            letter-spacing: 0.5px;
+            padding: 14px 64px;
+        }
+
+        input ~ i {
+            position: absolute;
+            left: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            transition: color   0.4s;
+        }
+
+        input:focus ~ i {
+            color: #040229;
+        }
+
+        .nav img{
+            width: 100px;
+            height: auto;
+        }
+
+        button.submit {
+            color: #fff;
+            padding: 14px 64px;
+            margin: 32px auto;
+            letter-spacing: 2px;
+            font-weight: bold;
+            background-image: linear-gradient(to right, #304069, #3a79ad);
+            cursor: pointer;
+            transition: opacity 0.4s;
+        }
+
+        button.submit:hover {
+            opacity: 0.9;
+        }
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        /* Dropdown button */
+        .dropbtn {
+            background-color: #020C25;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #0C1833;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content label {
+            color: white;
+            padding: 12px 16px;
+            display: block;
+            cursor: pointer;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content label:hover {
+            background-color: #1C71A2;
+        }
+
+        /* Show the dropdown menu on click */
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:focus-within .dropbtn {
+            background-color: #1C71A2;
+        }
+
+        /* ----  Responsiveness   ----  */
+        @media (max-width: 780px) {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .side {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" style="position: fixed;margin-top: 0px;margin-left: 0px;">
+        <img src="download.png">
+    </nav>
+
+    <section class="side">
+        <img src="cooking.png" alt="">
+    </section>
+
+    <section class="main">
+        <div class="login-container">
+            <p class="title">
+                <h1></h1> 
+                <h2></h2>
+               </p>
+            <div class="separator"></div>
+            <p class="welcome-message"></p>
+
+            <form class="login-form">
+                <div class="form-control">
+                    <input type="text" placeholder="Enter your city">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">How big is your task ?</button>
+                    <div class="dropdown-content">
+                        <form action="/submit-task" method="post">
+                            <label for="small"><input type="radio" id="small" name="task_size" value="Small"> Small - Est. 1 hr</label><br>
+                            <label for="medium"><input type="radio" id="medium" name="task_size" value="Medium"> Medium - Est. 2-3 hrs</label><br>
+                            <label for="large"><input type="radio" id="large" name="task_size" value="Large"> Large - Est. 4+ hrs</label><br>
+                        </form>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <input type="task" placeholder="Describe your task">
+                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                </div>
+                <button class="submit">Book Your Tasker
+                </button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

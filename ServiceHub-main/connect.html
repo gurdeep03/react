@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect With Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Fugaz+One&family=Pangolin&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- gurman , gurdeep , guntas -->
+    
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.434), rgb(0, 0, 0)), url("Screenshot.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background:  url("Screenshot.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            background: white;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            padding: 2vw 4vw;
+            width: 40%;
+            max-width: 320px;
+            border-radius: 20px;
+            border: 5px;
+            border-color: linear-gradient(to right, #b3700d, #281e02);
+        }
+
+        form h3 {
+            color: rgb(135, 84, 2);
+            font-family: Fugaz One;
+            font-weight: 800;
+            font-size: x-large;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 380px;
+            position: relative;
+            margin-bottom: 24px;
+        }   
+
+        input,
+        button {
+            border: none;
+            outline: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+        }
+
+        input {
+            width: 50%;
+            background: #e6e6e6;
+            color: #333;
+            letter-spacing: 0.5px;
+            padding: 14px 64px;
+        }
+
+        input ~ i {
+            position: absolute;
+            left: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            transition: color   0.4s;
+        }
+
+        input:focus ~ i {
+            color:#8E6F50;
+        }
+
+        form input:focus, form textarea:focus {
+            color: #8E6F50;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: gray;
+        }
+
+        .submit {
+            padding: 15px;
+            background: linear-gradient(to right, #b3700d, #281e02);
+            color: #fff;
+            font-size: 18px;
+            border: 0;
+            cursor: pointer;
+            border-radius: 30px;
+            margin-top: 20px;
+            margin-bottom: 0;
+            width: 120px;
+            margin-left: 100px;
+        }
+        .nav img{
+        width: 150px;
+        height: auto;
+    }
+
+        #message1{
+            height: 20px;
+            width: 190px;
+        }
+        .message input{
+            margin-top: 0%;
+            margin-left: 0px;
+        }
+    </style>
+    
+
+    <div class="container">
+        <form onsubmit="sendEmail(); return false;">
+            <h3>GET IN TOUCH WITH US</h3>
+            <div class="form-control">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+
+            <div class="form-control">
+                <input type="email" id="nemail" placeholder="Email ID" required>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div class="form-control">
+                <input type="text" id="phone" placeholder="Phone No." required>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+            </div>  
+
+            <div class="message">
+                <input type="text" id="message1" placeholder="How can we help you?" required>
+            </div>  
+            <button type="submit" class="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+
+    <script>
+        function sendEmail() {
+            Email.send({
+
+                Host : "smtp.elasticemail.com",
+                Username : "servicehubg8@gmail.com",
+                Password : "7CD607025459C906C7CB8F3967FD04DC3B89",
+                To : 'servicehubweb01@gmail.com',
+                From : "servicehubg8@gmail.com",
+                Subject : "New Contact Form Enquiry",
+                Body : "Name : " + document.getElementById("name").value + "<br> Email: " + document.getElementById("nemail").value + "<br> Phone No. : " + document.getElementById("phone").value + "<br> Message: " + document.getElementById("message1").value
+            }).then(
+                message => alert("Message sent successfully!")
+            );
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="./tasker.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Tasker</title>
+</head>
+<body>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: url(aesthetic.jpg);
+    
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.side img {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 200px;
+}
+
+.login-container {
+    max-width: 450px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    text-transform: uppercase;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.separator {
+    width: 150px;
+    height: 4px;
+    background-color: #843bc7;
+    margin: 24px;
+}
+
+.welcome-message {
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 28px;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control {
+    width: 100%;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+}
+
+input {
+    width: 100%;
+    background: #e6e6e6;
+    color: #333;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
+}
+
+input ~ i {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: color   0.4s;
+}
+
+input:focus ~ i {
+    color: #843bc7;
+}
+
+.nav img{
+    width: 150px;
+    height: auto;
+}
+
+button.submit {
+    color: #fff;
+    padding: 14px 64px;
+    margin: 32px auto;
+    
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #a95eda, #2f9ed2);
+    cursor: pointer;
+    transition: opacity 0.4s;
+}
+
+button.submit:hover {
+    opacity: 0.9;
+}
+
+.dropbtn {
+  background-image: linear-gradient(to right, #a641ea, #0d90cd);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #e8d7d5;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #e1b3ab}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+/* ----  Responsiveness   ----  */
+@media (max-width: 780px) {
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .side {
+        display: none;
+    }
+}
+    </style>
+<nav class="nav" style="position: fixed;margin-top: 0px;margin-left: 0px;">
+    <img src="download.png">
+</nav>
+
+    <section class="side">
+        <img src="tasks.png" alt="">
+    </section>
+
+    <section class="main">
+        <div class="login-container">
+            <p class="title">
+                <h1></h1> 
+                <h2></h2>
+               </p>
+            <div class="separator"></div>
+            <p class="welcome-message"></p>
+
+            <form class="login-form">
+                <div class="form-control">
+                    <input type="text" placeholder="Enter your city">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <i id="tickIcon" class="fa fa-check" aria-hidden="true" style="display: none;"></i>
+    <span id="cityText" style="display: none;">City entered!</span>
+                </div>
+                <div class="form-control street-colony-div" style="display: none;">
+                    <input type="street" placeholder="Enter your street/colony">
+                    <i class="fa fa-street-view" aria-hidden="true"></i>
+                </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Opt for your task</button>
+                        <div class="dropdown-content">
+                          <a href="cleaning.html">Cleaning</a>
+                          <a href="car-repairs.html">Car Repairs</a>
+                          <a href="gardening.html">Gardening</a>
+                          <a href="carpentry.html">Carpentry</a>
+                          <a href="cooking.html">Cooking</a>
+                          <a href="painting.html">Painting</a>
+                          <a href="plumbing.html">Plumbing</a>
+                          <a href="electrical.html">Electrical</a>
+                          <a href="car-wash.html">Car Wash</a>
+                          <a href="event.html">Event Planning</a>
+                          <a href="pest.html">Pest Control</a>
+                        </div>
+                      </div>
+                    
+                
+ 
+                <h1 style="text-align: center;">INR 500 per hour</h1>
+
+                <button class="submit">Get Started</button>
+            </form>
+        </div>
+    </section>
+    <script>// Predefined list of allowed cities
+        const allowedCities = ['Ludhiana','ludhiana', 'Mohali','mohali', 'Rajpura','rajpura', 'Patiala','patiala', 'Sangrur','sangrur', 'Sirhind','sirhind', 'Bathinda','bathinda', 'Amritsar','amritsar', 'Mansa','mansa','Jalandhar','jalandhar','Moga','moga', 'Khanna','khanna', 'Anandpur Sahib','anandpur sahib', 'Malerkotla','malerkotla'];
+        
+        // Get references to the input field and elements to show/hide
+        const cityInput = document.querySelector('input[type="text"]');
+        const tickIcon = document.getElementById('tickIcon');
+        const cityText = document.getElementById('cityText');
+        const streetColonyInput = document.querySelector('input[type="street"]');
+        const streetColonyDiv = document.querySelector('.street-colony-div');
+        
+        // Add event listener to input field
+        cityInput.addEventListener('input', function() {
+            // Check if the entered city is in the list of allowed cities
+            const enteredCity = cityInput.value.trim();
+            if (allowedCities.includes(enteredCity)) {
+                // Show tick icon and text
+                tickIcon.style.display = 'inline';
+                tickIcon.classList.add('fa-check');
+                tickIcon.classList.remove('fa-map-marker');
+                cityText.textContent = 'Indeed, we serve your location!';
+                cityText.style.display = 'inline';
+                // Show street/colony input field
+                streetColonyDiv.style.display = 'block';
+            } else {
+                // Hide tick icon and text
+                tickIcon.style.display = 'inline';
+                tickIcon.classList.remove('fa-check');
+                tickIcon.classList.add('fa-map-marker');
+                cityText.textContent = 'Unfortunately, we are unable to service your location.';
+                cityText.style.display = 'inline';
+                // Hide street/colony input field
+                streetColonyDiv.style.display = 'none';
+            }
+        });
+        
+    </script>
+</body>
+</html>

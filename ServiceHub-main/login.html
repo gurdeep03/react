@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body style="background:url(paintingbackground.jpg); background-size: cover;">
+  <style>
+    /* Login form */
+    /* gurdeep */
+    .form-container {
+        margin-top: 0px;
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: rgb(255, 255, 255);
+      }
+      
+      .login-form {
+        display: flex;
+        flex-direction: column;
+      }
+      .main{
+        margin-top: 0px;
+        color:white;
+      }
+      .login-form label {
+        margin-bottom: 5px;
+      }
+      .login-container {
+        
+        background:url(background.jpg);
+      }
+      #name{
+        margin-top: -20px;
+      }
+      #email{
+        margin-top: -20px;
+      }
+      #password{
+        margin-top: -20px;
+      }
+      #confirm-password{
+        margin-top: -20px;
+      }
+      #email{
+        margin-top: -15px;
+      }
+      #password{
+        margin-top: -15px;
+      }
+      
+      .login-form input[type="email"],
+      .login-form input[type="password"] {
+        margin-bottom: -10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      .login-form input[type="checkbox"] {
+        margin-right: 10px;
+      }
+      .logo{
+        width: 10%;
+        height: 10%;
+      }
+      .logo img{
+        width: 150px;
+        height: 100%;
+        padding: 0px;
+        margin-top: 0px;
+      }
+      .login-form button[type="submit"] {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: #fff;
+        cursor: pointer;
+      }
+      
+      .login-form button[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+      
+      .login-form a {
+        color: #007bff;
+        text-decoration: none;
+        margin-top: 10px;
+        display: block;
+      }
+      
+      .login-form a:hover {
+        text-decoration: underline;
+      }
+      
+      .login-form p {
+        margin-top: 10px;
+        text-align: center;
+      }
+    
+    
+    </style>
+    <div class="logo"><img src="download.png" alt=""></div>
+        
+  
+  <div style="text-align: center;">
+    <div style="width: 300px; margin: 0 auto; padding: 0px;">
+      <div class="main">  
+        <h1 style="color: #e3eadc;" >ServiceHub</h1>
+        <h4 style="color: #b2cddd;">Your Gateway to Seamless Service<h4>
+        </div>
+    </div>
+  </div>
+<div class="form-container">
+<form class="login-form" method="post" action="/login">
+  <label for="email">Enter username</style></label><br>
+  <input type="email" id="email" name="email" required><br>
+  <label for="password">Password</label><br>
+  <input type="password" id="password" name="password" required><br>
+  <label for="remember-me">
+  <input type="checkbox" id="remember-me" name="remember-me">Remember me
+  </label><br>
+  <button type="submit">Login</button><br>
+  <a href="/forgot.html">Forgot Password?</a><br>
+  <p>Don't have an account?<a href="register.html">Register</a></p>
+</form>
+</div>
+</body>
+</html>
